@@ -1,0 +1,25 @@
+.read data.sql
+
+
+CREATE TABLE bluedog AS
+  SELECT color, pet FROM students WHERE color = 'blue' AND pet = 'dog';
+
+CREATE TABLE bluedog_songs AS
+  SELECT color, pet, song FROM students WHERE color = 'blue' AND pet = 'dog';
+
+
+CREATE TABLE smallest_int AS
+  SELECT time, smallest FROM students WHERE smallest > 2 ORDER BY smallest LIMIT 20;
+
+
+CREATE TABLE matchmaker AS
+  SELECT A.pet, A.song, A.color, B.color
+    FROM students as A, students as B
+    WHERE A.time < B.time AND A.pet = B.pet AND A.song = B.song
+    ORDER BY A.time;
+
+
+CREATE TABLE sevens AS
+  SELECT seven
+    FROM students AS s, numbers AS n
+    WHERE s.time = n.time AND n.'7' = 'True' AND s.number = 7;
